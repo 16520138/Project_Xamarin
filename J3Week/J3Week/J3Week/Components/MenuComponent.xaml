@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="J3Week.Components.MenuComponent"
+             Padding="10"
+             BackgroundColor="White"
+             Spacing="10">
+    
+    
+    <StackLayout Orientation="Horizontal" BackgroundColor="#9400D3">
+        <Image Source="{Binding avatar}" WidthRequest="70" HeightRequest="70" Margin="15,10,0,10" HorizontalOptions="Start" />
+        <Label Text="{Binding user.lastname}" TextColor="White" FontSize="Large" FontAttributes="Bold, Italic" Margin="10,0,0,0" 
+                       VerticalOptions="Center"/>
+    </StackLayout>
+    <StackLayout Padding="0">
+
+        <StackLayout VerticalOptions="FillAndExpand"  
+                                 Orientation="Horizontal"  
+                                 Spacing="40" Padding="0,10,0,10">
+            <Image Source="profile"  
+                                     WidthRequest="30"  
+                                     HeightRequest="30"  
+                                     VerticalOptions="Center" />
+            <Label Text="Profile" FontAttributes="Bold" FontSize="Medium" TextColor="Black" Margin="10,0,0,10">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Profile"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+        <BoxView HeightRequest="1" BackgroundColor="LightGray"/>
+        <StackLayout VerticalOptions="FillAndExpand"  
+                                 Orientation="Horizontal"  
+                                 Spacing="40" Padding="0,10,0,10">
+            <Image Source="friend"  
+                                     WidthRequest="30"  
+                                     HeightRequest="30"  
+                                     VerticalOptions="Center" />
+
+            <Label Text="Friends" FontAttributes="Bold" FontSize="Medium" TextColor="Black" Margin="10,0,0,10">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Friends"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+        
+        <BoxView HeightRequest="1" BackgroundColor="LightGray"/>
+        
+        <StackLayout VerticalOptions="FillAndExpand"  
+                                 Orientation="Horizontal"  
+                                 Spacing="40" Padding="0,10,0,10">
+            <Image Source="photo"  
+                                     WidthRequest="30"  
+                                     HeightRequest="30"  
+                                     VerticalOptions="Center" />
+
+            <Label Text="Photo" FontAttributes="Bold" FontSize="Medium" TextColor="Black" Margin="10,0,0,10">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Friends"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+
+        </StackLayout>
+        <BoxView HeightRequest="1" BackgroundColor="LightGray"/>
+        <StackLayout VerticalOptions="FillAndExpand"  
+                                 Orientation="Horizontal"  
+                                 Spacing="40" Padding="0,10,0,10">
+            <Image Source="post"  
+                                     WidthRequest="30"  
+                                     HeightRequest="30"  
+                                     VerticalOptions="Center" />
+            <Label Text="Post" FontAttributes="Bold" FontSize="Medium" TextColor="Black" Margin="10,0,0,10">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Friends"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+        </StackLayout>
+        
+        
+    </StackLayout>
+</StackLayout>

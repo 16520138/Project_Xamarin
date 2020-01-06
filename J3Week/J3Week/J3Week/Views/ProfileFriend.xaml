@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="J3Week.Views.ProfileFriend"
+             xmlns:Local="clr-namespace:J3Week.ViewModels"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Local:DateValueConverter x:Key="DateValueConverter"></Local:DateValueConverter>
+            <Local:PostStateConverter x:Key="PostStateConverter"></Local:PostStateConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Grid HeightRequest="{x:Static Local:Measurements.ProportionalViewSize}" ColumnSpacing="0" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.2*"/>
+                        <ColumnDefinition Width="0.8*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <Image Grid.Column="0" Grid.Row="0" Source="back.png" HorizontalOptions="Center" VerticalOptions="Center" Margin="10">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Back"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Label Grid.Column="1" Grid.Row="0" Text="Profile" FontAttributes="Bold" FontSize="Large" FontFamily="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black"/>
+
+                    <Image Grid.Column="2" Grid.Row="0" Source="edit.png" Margin="10">
+                        <!--<Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Edit"/>
+                        </Image.GestureRecognizers>-->
+                    </Image>
+                </Grid>
+                <BoxView HeightRequest="1" BackgroundColor="LightGray"/>
+                <AbsoluteLayout>
+                    <StackLayout Spacing="0" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+                        <ContentView Padding="10,10,10,10">
+                            <!-- The Grid column widths approximate the golden ratio -->
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="38*" />
+                                    <ColumnDefinition Width="62*" />
+                                </Grid.ColumnDefinitions>
+                                <AbsoluteLayout Grid.Row="0" Grid.Column="0">
+                                    <!--<Image x:Name="AvatarImage" WidthRequest="120" HeightRequest="120" Source="image3.jpg" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5, 0.5, AutoSize, AutoSize" />-->
+                                    <Image Source="" x:Name="avatar" Aspect="AspectFit" WidthRequest="120" HeightRequest="120"  AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5, 0.5, AutoSize, AutoSize" />
+                                </AbsoluteLayout>
+                                <ContentView Padding="5, 0, 0, 0" Grid.Row="0" Grid.Column="1">
+                                    <StackLayout Spacing="10">
+                                        <ContentView>
+                                            <StackLayout Spacing="0">
+                                                <Label Text="" x:Name="txtname" />
+                                                <Label Text="" x:Name="txtjob" FontSize="Small" TextColor="Silver" />
+                                            </StackLayout>
+                                        </ContentView>
+                                        <ContentView IsEnabled="true" IsVisible="true">
+                                            <!-- Check nếu có thông tin thì hiện contentview này-->
+                                            <StackLayout>
+                                                <AbsoluteLayout>
+                                                    <ContentView Padding="0, 0, 10, 0" AbsoluteLayout.LayoutFlags="XProportional" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize">
+                                                        <StackLayout Spacing="0">
+                                                            <Label Text="" x:Name="txtstreet" FontSize="Small" />
+                                                            <Label Text="" x:Name="txtcity" FontSize="Micro" />
+                                                            <Label Text="" x:Name="txtage" FontSize="Micro" />
+                                                        </StackLayout>
+                                                    </ContentView>
+                                                </AbsoluteLayout>
+                                            </StackLayout>
+                                        </ContentView>
+                                        <ContentView HeightRequest="1" BackgroundColor="Silver" IsEnabled="true" IsVisible="true" />
+                                        <ContentView IsEnabled="true" IsVisible="true">
+                                            <AbsoluteLayout>
+                                                <Label Text="" x:Name="txtphone" FontSize="Small" HeightRequest="20" VerticalTextAlignment="Center" AbsoluteLayout.LayoutFlags="XProportional" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize" />
+                                                <StackLayout Orientation="Horizontal" Spacing="15" AbsoluteLayout.LayoutFlags="XProportional,HeightProportional" AbsoluteLayout.LayoutBounds="1,0,AutoSize,1">
+                                                    <Image Source="message" Aspect="AspectFit" HeightRequest="20" WidthRequest="20">
+                                                        <Image.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="buttonSms"  NumberOfTapsRequired="1" />
+                                                        </Image.GestureRecognizers>
+                                                    </Image>
+                                                    <Image Source="phone" Aspect="AspectFit" HeightRequest="20" WidthRequest="20">
+                                                        <Image.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="buttonCall"  NumberOfTapsRequired="1" />
+                                                        </Image.GestureRecognizers>
+                                                    </Image>
+                                                </StackLayout>
+                                            </AbsoluteLayout>
+                                        </ContentView>
+                                        <ContentView HeightRequest="1" BackgroundColor="Silver" IsEnabled="true" IsVisible="true" />
+                                        <ContentView IsEnabled="true" IsVisible="true">
+                                            <AbsoluteLayout>
+                                                <ContentView Padding="0">
+                                                    <Label Text="" x:Name="txtemail" FontSize="Micro" HeightRequest="20" VerticalTextAlignment="Center" AbsoluteLayout.LayoutFlags="XProportional" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize" />
+                                                </ContentView>
+                                                <Image Source="email" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" AbsoluteLayout.LayoutFlags="XProportional,HeightProportional" AbsoluteLayout.LayoutBounds="1,0,AutoSize,1">
+                                                    <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="btnEmail"  NumberOfTapsRequired="1" />
+                                                    </Image.GestureRecognizers>
+                                                </Image>
+                                            </AbsoluteLayout>
+                                        </ContentView>
+                                    </StackLayout>
+                                </ContentView>
+                            </Grid>
+                        </ContentView>
+                        <ContentView HeightRequest="1" BackgroundColor="Silver" />
+                        <AbsoluteLayout VerticalOptions="FillAndExpand">
+                            <AbsoluteLayout IsEnabled="{Binding HasAddress}" IsVisible="{Binding HasAddress}" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1.0, 1.0">
+                                <ActivityIndicator AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional" AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.2, AutoSize" />
+                                <maps:Map HeightRequest="400" x:Name="MyMap" IsShowingUser="True" MapType="Street" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1.0, 1.0" />
+                            </AbsoluteLayout>
+                        </AbsoluteLayout>
+                        <!--<maps:Map  HeightRequest="200" x:Name="MyMap" IsShowingUser="True" MapType="Street"/>-->
+                    </StackLayout>
+                </AbsoluteLayout>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+    

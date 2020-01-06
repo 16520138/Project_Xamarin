@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="J3Week.Views.Page1">
+    <ContentPage.Content>
+        <StackLayout Spacing="10" Padding="10">
+            <Entry Placeholder="Phone Number" x:Name="phone"/>
+            <Button x:Name="buttonSms" Text="Send SMS"/>
+            <Button x:Name="buttonCall" Text="Call Phone Number"/>
+            <Entry Placeholder="E-mail Address" x:Name="email"/>
+            <Button x:Name="buttonEmail" Text="Send E-mail"/>
+            <Label Text=""/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
